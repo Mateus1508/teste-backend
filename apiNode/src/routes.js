@@ -1,14 +1,12 @@
 const legalArticlesController = require('./controllers/legalArticlesController');
-const legalArticlesMiddleware = require('./middlewares/legalArticlesMiddleware');
 const express = require('express');
 const routes = express.Router();
 
 routes.get('/articles', legalArticlesController.getAllByPublishDate);
 
-routes.post('/articles/', legalArticlesMiddleware.validateFilterPerCategory,
-legalArticlesController.postAllPerCategory);
+routes.get('/articles/search/termo-chave', legalArticlesController.getAllPerTitulo);
 
-routes.post('/articles', legalArticlesMiddleware.validateFilterPerTitulo,
-legalArticlesController.postAllPerTitulo);
+routes.get('/articles/:categoria', legalArticlesController.getAllPerCategory);
+
 
 module.exports = routes;

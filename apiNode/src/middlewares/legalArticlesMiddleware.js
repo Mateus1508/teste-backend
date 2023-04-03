@@ -1,16 +1,4 @@
-const validateFilterPerCategory = (req, res, next) => {
-    const { body } = req;
-
-        if(body.Categoria !== null || body.Categoria === undefined) {
-            if (body.Categoria === "" ) {
-                res.status(400).json({message: 'A categoria não pode ser vazia.'})
-            }
-               
-            next();
-        }
-}
-
-const validateFilterPerTitulo = (req, res, next) => {
+/* const validateFilterPerTitulo = (req, res, next) => {
     const { body } = req;
 
     if(body.Titulo !== null) {
@@ -24,6 +12,5 @@ const validateFilterPerTitulo = (req, res, next) => {
 }
 
 module.exports = {
-    validateFilterPerCategory,
     validateFilterPerTitulo
-}
+} */

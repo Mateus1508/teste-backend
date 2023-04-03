@@ -5,22 +5,30 @@ const connection = require('../database');
         return articles;
     }
     
-    const postAllPerCategory = async (legalArticles) => { 
-        const {Categoria} = legalArticles;
-            console.log(Categoria);      
-            const [articles] = await connection.promise().query(`SELECT * FROM articles WHERE Categoria = ?`, [Categoria]);
-            return articles;
+    const getAllPerCategory = async (legalArticles) => { 
+        const [articles] = await connection.promise().query(`SELECT * FROM articles WHERE Categoria LIKE '%${legalArticles}%'`);
+        return articles;
     }
     
-    const postAllPerTitulo = async (legalArticles) => { 
-        const {Titulo} = legalArticles;
-            console.log(Titulo);      
-            const [articles] = await connection.promise().query(`SELECT * FROM articles WHERE Titulo LIKE %?%`, [Titulo]);
-            return articles;
+    const getAllPerTitulo = async (legalArticles) => { 
+        let column;
+        let value;
+        const {Titulo, Autor} = legalArticles;
+        if (Titulo) {
+            column = "Titulo";
+            value = Titulo;
+        }
+        if (Autor) {
+            column = "Autor";
+            value = Autor;
+        }
+        console.log(Titulo);      
+        const [articles] = await connection.promise().query(`SELECT * FROM articles WHERE ${column} LIKE '%${value}%'`);
+        return articles;
     }
 
 module.exports = {
     getAllByPublishDate,
-    postAllPerCategory,
-    postAllPerTitulo
+    getAllPerCategory,
+    getAllPerTitulo
 };
