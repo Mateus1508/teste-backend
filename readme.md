@@ -95,7 +95,7 @@ operações:
 Crie um script em Python que:
 ● Conecte-se à API criada na Parte 1; **OK**
 ● Recupere os dados dos artigos jurídicos; **OK**
-● Gere um relatório em formato CSV com informações como:
-i. quantidade de artigos por categoria
-ii. quantidade de artigos por autor
-iii. média de palavras por artigo.
+● Gere um relatório em formato CSV com informações como: **Falta**
+i. quantidade de artigos por categoria **OK**
+ii. quantidade de artigos por autor **OK**
+iii. média de palavras por artigo. **OK**

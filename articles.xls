@@ -1,7 +1,0 @@
-ID,Titulo,Autor,Conteudo,Data_de_Publicacao,Categoria
-1,titulo 1,autor 1,conteudo 1,2023-04-03T03:00:00.000Z,civil
-2,titulo 2,autor 2,conteudo 3,2023-04-03T03:00:00.000Z,penal
-3,titulo 2,autor 2,conteudo 3,2023-04-03T03:00:00.000Z,trabalhista
-4,titulo 2,autor 2,conteudo 3,2023-04-03T03:00:00.000Z,trabalhista
-5,titulo 2,autor 2,conteudo 3,2023-04-03T03:00:00.000Z,trabalhista
-6,titulo 4,autor 4,conteudo 4,2023-04-03T03:00:00.000Z,trabalhista
