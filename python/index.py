@@ -1,13 +1,13 @@
 import requests
 import pandas as pd
+from openpyxl import Workbook
+from openpyxl.worksheet.table import Table, TableStyleInfo
 
 url = 'http://localhost:4000/articles'
 
 response = requests.get(url)
 data = response.json()
-
 df = pd.DataFrame(data)
-jsonDf = df.to_json()
 
 """quantidade de artigos por categoria"""
 categoria = df['Categoria']
@@ -27,9 +27,12 @@ for i in range(len(conteudo)):
     palavras += len(conteudo[i].split())
 
 mediaPalavras = palavras/len(data)
+mediaPalavras = pd.DataFrame({"Artigo":mediaPalavras}, index=["Média_palavras"])
 print(mediaPalavras)
 
-
+finalResult = pd.concat([resultAutor,resultCategoria, mediaPalavras])
+finalResult = pd.DataFrame(finalResult)
+finalResult.to_excel('relatorio.xlsx')
 
 
 
